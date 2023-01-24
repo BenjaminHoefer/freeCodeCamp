@@ -12,5 +12,4 @@ function sumPrimes(num) {
           .reduce((a, b) => a + b, 0);
 }
 
-debugger
-console.log(sumPrimes(977));
+sumPrimes(977);
