@@ -27,5 +27,5 @@ let counter;
 
   return dividend;
 }
-  
+
 smallestCommons([1,5]);
