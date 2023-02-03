@@ -2,9 +2,7 @@ function palindrome(str) {
 
     const paliArr = str.toLowerCase().split(/[_]|\W*\s*/g);
 
-    return paliArr;
+    return paliArr.join("") === paliArr.reverse().join("");
 }
 
-debugger;
 console.log(palindrome("A man, a plan, a canal. Panama"));
-console.log(palindrome("0_0 (: /-\ :) 0-0"));
