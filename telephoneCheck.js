@@ -1,7 +1,12 @@
 function telephoneCheck(str) {
 
     if (!/[^-() \d]/g.test(str)) {
-        
+        if (!(/\(/g.test(str) && /\)/g.test(str))) {
+            return false;
+        }
+        if (str[str.length - 1] === "(" || str[str.length - 1] === ")") {
+            return false;
+        }
         const digArr = str.split(/\D/g);
         let count = 0;
         const countryCode = 1;
@@ -24,8 +29,9 @@ function telephoneCheck(str) {
     }
     return false;
 }
-
 debugger;
-console.log(telephoneCheck("55 55-55-555-5"));
+console.log(telephoneCheck("1 555-555-5555"));
+console.log(telephoneCheck("1 (555) 555-5555"));
 console.log(telephoneCheck("555-555-5555"));
-console.log(telephoneCheck("555)-555-5555"))
+console.log(telephoneCheck("1 555 555 5555"));
+console.log(telephoneCheck("1 456 789 4444"));
