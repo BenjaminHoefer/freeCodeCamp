@@ -1,9 +1,6 @@
 function telephoneCheck(str) {
 
     if (!/[^-() \d]/g.test(str)) {
-        if (!(/\(/g.test(str) && /\)/g.test(str))) {
-            return false;
-        }
         if (str[str.length - 1] === "(" || str[str.length - 1] === ")") {
             return false;
         }
@@ -24,14 +21,23 @@ function telephoneCheck(str) {
                 if (parseInt(str[0]) !== countryCode) {
                     return false;
                 }
+            case (count === 10):
+                if (digArr[0].length === 2) {
+                    return false;
+                }
         }
-        return true;
+        if(/\(/g.test(str) || /\)/g.test(str)) {
+            if (/\(\d{3}\)/g.test(str))
+                return true;
+                else {
+                    return false;
+                }
+        } else {
+            return true;
+            }
     }
     return false;
 }
+
 debugger;
-console.log(telephoneCheck("1 555-555-5555"));
-console.log(telephoneCheck("1 (555) 555-5555"));
-console.log(telephoneCheck("555-555-5555"));
-console.log(telephoneCheck("1 555 555 5555"));
-console.log(telephoneCheck("1 456 789 4444"));
+console.log(telephoneCheck("55 55-55-555-5"));
