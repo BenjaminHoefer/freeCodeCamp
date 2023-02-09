@@ -39,5 +39,4 @@ function telephoneCheck(str) {
     return false;
 }
 
-debugger;
-console.log(telephoneCheck("55 55-55-555-5"));
+telephoneCheck("55 55-55-555-5");
